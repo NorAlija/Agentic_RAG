@@ -1,2 +1,8 @@
 /.venv
 /.env
+
+/backend/app/__pycache__
+/data
+
+/frontend/src/README.md
+nodesource_setup.sh
