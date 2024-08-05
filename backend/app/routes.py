@@ -38,3 +38,20 @@ def chat():
         return jsonify({"prompt": prompt, "response": response})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+    
+@main.route('/delete', methods=['POST'])
+def delete_file():
+    data = request.get_json()
+    filename = data.get('filename')
+    
+    if not filename:
+        return jsonify({"error": "No filename provided"}), 400
+    
+    upload_folder = os.getenv('UPLOAD_FOLDER', 'data')
+    file_path = os.path.join(upload_folder, secure_filename(filename))
+    
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        return jsonify({"message": "File deleted successfully!"})
+    else:
+        return jsonify({"error": "File not found"}), 404

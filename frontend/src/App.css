@@ -8,12 +8,6 @@
   padding: 20px;
 }
 
-.upload-pdf {
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 400px;
-}
-
 .chatbot {
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -23,8 +17,8 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 60%;
+  height: 80%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .chat-window {
@@ -37,9 +31,8 @@
   flex: 1;
   overflow-y: auto;
   margin-bottom: 10px;
-  max-height: 300px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 .user-message {
@@ -48,7 +41,7 @@
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
-  align-self: flex-start;
+  align-self: flex-end;
 }
 
 .bot-response {
@@ -57,14 +50,19 @@
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 10px;
-  align-self: flex-end;
+  align-self: flex-start;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
 }
 
 .chatbot input {
+  flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 10px;
 }
 
 .chatbot button {
@@ -74,4 +72,54 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.chatbot button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.upload-form button {
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-form button:hover {
+  background-color: #218838;
+}
+
+.upload-message {
+  margin-top: 10px;
 }

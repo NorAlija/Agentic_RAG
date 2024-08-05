@@ -1,4 +1,3 @@
-// src/UploadPDF.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -33,6 +32,15 @@ const UploadPDF = () => {
     }
   };
 
+  const handleDelete = async (filename) => {
+    try {
+      const response = await axios.post('http://127.0.0.1:5000/delete', { filename });
+      setMessage(response.data.message || 'File deleted successfully!');
+    } catch (error) {
+      setMessage('Error deleting file.');
+    }
+  };
+
   return (
     <div>
       <h1>Upload PDF</h1>
@@ -40,6 +48,7 @@ const UploadPDF = () => {
         <input type="file" accept=".pdf" onChange={handleFileChange} />
         <button type="submit">Upload</button>
       </form>
+      {file && <button onClick={() => handleDelete(file.name)}>Delete</button>}
       {message && <p>{message}</p>}
     </div>
   );

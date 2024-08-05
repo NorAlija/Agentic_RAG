@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -18,14 +19,14 @@ const Chatbot = () => {
     if (!prompt) return;
 
     const userMessage = { text: prompt, sender: 'user' };
-    setMessages([...messages, userMessage]);
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
     setPrompt('');
     setLoading(true);
 
     try {
       const res = await axios.post('http://127.0.0.1:5000/chat', { prompt });
       const botResponse = { text: res.data.response, sender: 'bot' };
-      setMessages([...messages, userMessage, botResponse]);
+      setMessages((prevMessages) => [...prevMessages, botResponse]);
     } catch (err) {
       setError('Error fetching response from the server');
     } finally {
@@ -48,7 +49,7 @@ const Chatbot = () => {
             ))}
             {loading && <div className="bot-response">...</div>}
           </div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="input-area">
             <input
               type="text"
               value={prompt}
@@ -57,7 +58,7 @@ const Chatbot = () => {
             />
             <button type="submit">Send</button>
           </form>
-          {error && <p>{error}</p>}
+          {error && <p className="error-message">{error}</p>}
         </div>
       </div>
     </div>
@@ -65,4 +66,5 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
 
