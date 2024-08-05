@@ -9,7 +9,8 @@ load_dotenv()
 def create_app():
     app = Flask(__name__)
     
-    # Enable CORS
+    # Enable CORS to communicate with the frontend. Frontend runs on port 3000 and backend on 5000
+    # CORS enables them to communicate with eachother
     CORS(app)
 
     # Load configurations from .env
