@@ -2,7 +2,6 @@
 /.env
 
 /backend/app/__pycache__
-/data
-
+/backend/data/*.pdf
 /frontend/src/README.md
 nodesource_setup.sh
